@@ -1,7 +1,7 @@
 {
-  "name": "thai-address-database",
-  "version": "0.0.27",
-  "description": "",
+  "name": "@ninthz/thai-address-database",
+  "version": "0.0.29",
+  "description": "[![Build Status](https://travis-ci.org/Sellsuki/thai-address-database.svg?branch=master)](https://travis-ci.org/Sellsuki/thai-address-database) [![Maintainability](https://api.codeclimate.com/v1/badges/f8046d4074243a3cc5e8/maintainability)](https://codeclimate.com/github/Sellsuki/thai-address-database/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/f8046d4074243a3cc5e8/test_coverage)](https://codeclimate.com/github/Sellsuki/thai-address-database/test_coverage)",
   "main": "lib/index.js",
   "engines": {
     "node": ">=4.2.4"
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sellsuki/thai-address-database.git"
+    "url": "git+https://github.com/ninthz/thai-address-database.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sellsuki/thai-address-database/issues"
+    "url": "https://github.com/ninthz/thai-address-database/issues"
   },
-  "homepage": "https://github.com/Sellsuki/thai-address-database#readme",
+  "homepage": "https://github.com/ninthz/thai-address-database#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -44,5 +44,9 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "wordcut": "^0.8.1"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
