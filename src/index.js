@@ -90,6 +90,26 @@ const resolveResultbyField = (type, searchStr, maxResult) => {
   return possibles
 }
 
+const resolveResultAllField = (searchStr, maxResult) => {
+  searchStr = searchStr.toString().trim()
+  if (searchStr === '') {
+    return []
+  }
+  if (!maxResult) {
+    maxResult = 20
+  }
+  let possibles = []
+  try {
+    possibles = db.filter(item => {
+      let regex = new RegExp(searchStr, 'g')
+      return `${item.district}${item.amphoe}${item.province}${item.zipcode}`.toString().match(regex)
+    }).slice(0, maxResult)
+  } catch (e) {
+    return []
+  }
+  return possibles
+}
+
 const searchAddressByDistrict = (searchStr, maxResult) => {
   return resolveResultbyField('district', searchStr, maxResult)
 }
@@ -101,6 +121,10 @@ const searchAddressByProvince = (searchStr, maxResult) => {
 }
 const searchAddressByZipcode = (searchStr, maxResult) => {
   return resolveResultbyField('zipcode', searchStr, maxResult)
+}
+
+const searchAddressWildcard = (searchStr, maxResult) => {
+  return resolveResultAllField(searchStr, maxResult)
 }
 
 const splitAddress = (fullAddress) => {
@@ -129,6 +153,7 @@ exports.searchAddressByDistrict = searchAddressByDistrict
 exports.searchAddressByAmphoe = searchAddressByAmphoe
 exports.searchAddressByProvince = searchAddressByProvince
 exports.searchAddressByZipcode = searchAddressByZipcode
+exports.searchAddressWildcard = searchAddressWildcard
 exports.splitAddress = splitAddress
 
 if (angular) {
@@ -139,6 +164,7 @@ if (angular) {
         searchAddressByAmphoe: searchAddressByAmphoe,
         searchAddressByProvince: searchAddressByProvince,
         searchAddressByZipcode: searchAddressByZipcode,
+        searchAddressWildcard: searchAddressWildcard,
         splitAddress: splitAddress
       })
     })
